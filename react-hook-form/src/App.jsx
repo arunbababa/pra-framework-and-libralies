@@ -12,12 +12,12 @@ export default function App() {
   console.log(watch("exampleRequired")); // watch input value by passing the name of it
   console.log(watch("myInput")); // watch input value by passing the name of it
   return (
-
-    // memo : dateはonSubmit時にformのvalueを取得する
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
+    <>
+    {/* // memo : dateはonSubmit時にformのvalueを取得する
+    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* register your input into the hook by invoking the "register" function */}
-      <input defaultValue="test" {...register("example")} />
+      <input defaultValue="example" {...register("example")} />
       
       {/* include validation with required or other standard HTML validation rules */}
       <input defaultValue="exampleRequired" {...register("exampleRequired", { required: true, minLength: 10 })} />
@@ -25,7 +25,7 @@ export default function App() {
       <input defaultValue="myInput" {...register("myInput", { required: true })} />
 
       {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>exampleRequired is required</span>}
+      {errors.exampleRequired && <span>example is required</span>}
       <br />
       {errors.myInput && <span>myInput is required</span>}
       <br />
@@ -33,5 +33,8 @@ export default function App() {
       <br />
       <input type="submit" />
     </form>
+
+    <a href="register">registerを見てみよう</a>
+    </>
   );
 }
